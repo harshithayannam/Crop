@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Crop Yield Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="area">Enter Area (in hectares):</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Predict Yield</button>
+            </div>
+        </form>
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
